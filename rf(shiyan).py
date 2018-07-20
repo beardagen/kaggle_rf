@@ -118,7 +118,7 @@ while big <= 10:
     tryi =0
     while tryi ==0:        
         max_depth = int(input("请输入修改后的max_depth(决策树深的深度)\n"))
-        if n_estimators<10 and n_estimators >= 1:
+        if max_depth<10 and max_depth >= 1:
             tryi =1
         else :
             print ("请输入合理的最大树深度（1<max_depth<10）")
