@@ -108,11 +108,36 @@ min_samples_split=2
 min_samples_leaf=2
 big =0
 while big <= 10:
-    n_estimators = int(input("请修改n_estimators（迭代次数）：\n"))
-    max_depth = int(input("请输入修改后的max_depth(决策树深的深度)\n"))
-    random_state = int(input ("请输入修改后的random_state(随机数)\n"))
-    min_samples_split = int(input("请输入修改后的 min_samples_split(最小划分)\n"))
-    clf2 = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth,\
+    tryi =0
+    while tryi ==0:
+        n_estimators = int(input("请修改n_estimators（迭代次数）：\n"))
+        if n_estimators<30 and n_estimators >= 1:
+            tryi =1
+        else :
+            print ("请输入合理的迭代次数（1<n_estimators<30）")
+    tryi =0
+    while tryi ==0:        
+        max_depth = int(input("请输入修改后的max_depth(决策树深的深度)\n"))
+        if n_estimators<10 and n_estimators >= 1:
+            tryi =1
+        else :
+            print ("请输入合理的最大树深度（1<max_depth<10）")
+    tryi =0
+    while tryi ==0:           
+        random_state = int(input ("请输入修改后的random_state(随机数)\n"))
+        if random_state >0 and random_state<10 :
+            tryi =1
+        else :
+            print ("请输入合理的随机数（1<random_state<10）")    
+    tryi =0
+    while tryi ==0:         
+        min_samples_split = int(input("请输入修改后的 min_samples_split(最小划分)\n"))
+        if min_samples_split >0 and min_samples_split<5:
+            tryi =1
+        else :
+            print ("请输入合理的最小划分（0<min_samples_split<5）")    
+
+        clf2 = RandomForestClassifier(n_estimators=n_estimators, max_depth=max_depth,\
                                 random_state= random_state,min_samples_split=min_samples_split,\
                                 min_samples_leaf=min_samples_leaf)
 
